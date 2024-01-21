@@ -6,7 +6,8 @@ import UnderstandingForm from '../UnderstandingForm/UnderstandingForm';
 import SupportForm from '../SupportForm/SupportForm';
 import FeelingsForm from '../FeelingsForm/FeelingsForm'
 import CommentsForm from '../CommentsForm/CommentsForm';
-import Review from '../Review/Review';
+import Submit from "../Submit/Submit"
+import SubmitSuccess from '../SubmitSuccess/SubmitSuccess';
 
 function App() {
 
@@ -25,8 +26,11 @@ function App() {
       <Route path ="/CommentsForm">
         <CommentsForm/>
       </Route>
-      <Route path ="/Review">
-        <Review/>
+      <Route path ="/Submit">
+        <Submit/>
+      </Route>
+      <Route path ="/SubmitSuccess">
+        <SubmitSuccess/>
       </Route>
       </div>
     </Router>

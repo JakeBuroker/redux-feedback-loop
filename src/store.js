@@ -6,6 +6,8 @@ const feeling = (state = 0, action) => {
     if(action.type === 'SET_FEELING'){
       return state = parseFloat(action.payload)
     }
+    if(action.type === 'RESET'){
+      return state = 0}
     console.log(state)
     return state;
   }
@@ -14,6 +16,8 @@ const feeling = (state = 0, action) => {
     if(action.type === 'SET_UNDERSTANDING'){
       return state = parseFloat(action.payload)
     }
+    if(action.type === 'RESET'){
+      return state = 0}
     console.log(state)
     return state;
   }
@@ -22,6 +26,8 @@ const feeling = (state = 0, action) => {
     if(action.type === 'SET_SUPPORT'){
       return state = parseFloat(action.payload)
     }
+    if(action.type === 'RESET'){
+      return state = 0}
     console.log(state)
     return state;
   }
@@ -31,6 +37,8 @@ const feeling = (state = 0, action) => {
     if(action.type === 'SET_COMMENT'){
       return state = action.payload
     }
+    if(action.type === 'RESET'){
+    return state = ""}
     console.log(state)
     return state;
   }

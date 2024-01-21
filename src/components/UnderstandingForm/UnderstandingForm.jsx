@@ -1,7 +1,5 @@
 import React from 'react';
-import axios from 'axios';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 
@@ -21,12 +19,13 @@ function UnderstandingForm() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <h1 className='App-title'>Understanding</h1>
-        <h4>Understanding!</h4>
+      <h1 className='App-title'>Feedback!</h1>
+        <h4>Don't forget it!</h4>
       </header>
+      <h2>How well are you understanding the content?</h2>
       <form onSubmit={handleSubmit}>
-        <input type="number" placeholder='Add Feeling' value={newUnderstanding} onChange={(e) => setNewUnderstanding(e.target.value)} />
-        <button>Add Understanding</button>
+        <input data-testid="input" type="number" placeholder='Add Feeling' value={newUnderstanding} onChange={(e) => setNewUnderstanding(e.target.value)} />
+        <button data-testid="next">NEXT</button>
       </form>
     </div>
   );
