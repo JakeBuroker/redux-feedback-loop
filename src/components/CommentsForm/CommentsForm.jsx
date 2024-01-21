@@ -13,6 +13,7 @@ function CommentsForm() {
     console.log('in handle submit', newComment);
     dispatch({ type: "SET_COMMENT", payload: newComment});
     setNewComment('');
+    
     history.push('/submit')
   };
 

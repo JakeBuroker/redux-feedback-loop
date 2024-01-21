@@ -12,6 +12,7 @@ function UnderstandingForm() {
     console.log('in handle submit', newUnderstanding)
     dispatch({ type: "SET_UNDERSTANDING", payload: newUnderstanding });
     setNewUnderstanding(0);
+    if (newUnderstanding > 0 && newUnderstanding < 11)
     history.push('/SupportForm')
   };
 
@@ -23,6 +24,7 @@ function UnderstandingForm() {
         <h4>Don't forget it!</h4>
       </header>
       <h2>How well are you understanding the content?</h2>
+      <h3>1-10</h3>
       <form onSubmit={handleSubmit}>
         <input data-testid="input" type="number" placeholder='Add Feeling' value={newUnderstanding} onChange={(e) => setNewUnderstanding(e.target.value)} />
         <button data-testid="next">NEXT</button>

@@ -13,6 +13,7 @@ function FeelingsForm() {
     console.log('in handle submit', newFeeling);
     dispatch({ type: "SET_FEELING", payload: newFeeling });
     setNewFeeling(0);
+    if (newFeeling > 0 && newFeeling < 11)
     history.push('/UnderstandingForm')
   };
 
@@ -24,6 +25,7 @@ function FeelingsForm() {
         <h4>Don't forget it!</h4>
       </header>
       <h2>How are you feeling today?</h2>
+      <h3>1-10</h3>
       <form  onSubmit={handleSubmit}>
         <input data-testid="input" type="number" placeholder='Add Feeling' value={newFeeling} onChange={(e) => setNewFeeling(e.target.value)} />
         <button data-testid="next" >NEXT</button>

@@ -12,7 +12,8 @@ function SupportForm() {
     console.log('in handle submit', newSupport)
     dispatch({ type: "SET_SUPPORT", payload: newSupport});
     setNewSupport(0);
-    history.push('/CommentsForm')
+  if (newSupport > 0 && newSupport < 11)
+    return history.push('/CommentsForm')
   };
 
   
@@ -23,6 +24,7 @@ function SupportForm() {
         <h4>Don't forget it!</h4>
       </header>
       <h2>How well are you being supported?</h2>
+      <h3>1-10</h3>
       <form onSubmit={handleSubmit}>
         <input data-testid="input" type="number" placeholder='Add Feeling' value={newSupport} onChange={(e) => setNewSupport(e.target.value)} />
         <button data-testid="next" >NEXT</button>
