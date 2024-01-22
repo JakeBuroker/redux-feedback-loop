@@ -44,6 +44,17 @@ const feeling = (state = 0, action) => {
   }
 
 
+const feedback = (state = [], action) => {
+  if(action.type === 'SET_FEEDBACK'){
+    return  action.payload
+  }
+  if(action.type === 'REMOVE'){
+    const feedbackId = action.payload.id
+    return state.filter(feedback => feedback.id !== feedbackId);
+  }
+
+  return state;
+}
 
 
 
@@ -52,7 +63,8 @@ const store = createStore(
 feeling,
 understanding,
 support,
-comment
+comment,
+feedback
     }),
     applyMiddleware(logger),
   );

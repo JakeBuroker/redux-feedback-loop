@@ -8,6 +8,7 @@ import FeelingsForm from '../FeelingsForm/FeelingsForm'
 import CommentsForm from '../CommentsForm/CommentsForm';
 import Submit from "../Submit/Submit"
 import SubmitSuccess from '../SubmitSuccess/SubmitSuccess';
+import Admin from '../Admin/Admin';
 
 function App() {
 
@@ -31,6 +32,9 @@ function App() {
       </Route>
       <Route path ="/SubmitSuccess">
         <SubmitSuccess/>
+      </Route>
+      <Route path ="/Admin">
+        <Admin/>
       </Route>
       </div>
     </Router>

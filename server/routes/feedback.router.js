@@ -24,6 +24,15 @@ router.post('/',  (req, res) => {
       });
   });
   
+  router.delete('/:id', (req, res) => {
+    const id = req.params.id; 
+    pool.query('DELETE FROM "feedback" WHERE id = $1', [id]).then((result) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(error);
+        res.sendStatus(500);
+    })
+});
 
 // DO NOT EDIT THIS ROUTE
 // This route must return all feedback.
