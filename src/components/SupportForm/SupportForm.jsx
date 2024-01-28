@@ -7,6 +7,7 @@ function SupportForm() {
   const [newSupport, setNewSupport] = useState(0);
   const dispatch = useDispatch();
   const history = useHistory()
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('in handle submit', newSupport)
@@ -16,7 +17,6 @@ function SupportForm() {
     return history.push('/CommentsForm')
   };
 
-  
   return (
     <div className='App'>
       <header className='App-header'>

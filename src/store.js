@@ -1,6 +1,5 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import logger from 'redux-logger';
-import App from './components/App/App';
 
 const feeling = (state = 0, action) => {
     if(action.type === 'SET_FEELING'){
@@ -55,8 +54,6 @@ const feedback = (state = [], action) => {
 
   return state;
 }
-
-
 
 const store = createStore(
     combineReducers({

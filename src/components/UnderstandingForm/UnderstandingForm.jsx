@@ -1,12 +1,13 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useDispatch } from 'react-redux';
 
 function UnderstandingForm() {
   const [newUnderstanding, setNewUnderstanding] = useState(0);
   const dispatch = useDispatch();
   const history = useHistory()
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('in handle submit', newUnderstanding)
@@ -16,7 +17,6 @@ function UnderstandingForm() {
     history.push('/SupportForm')
   };
 
-  
   return (
     <div className='App'>
       <header className='App-header'>

@@ -2,8 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool')
 
-
-// TODO: This route adds a new feedback entry
+// This route adds a new feedback entry
 router.post('/',  (req, res) => {
     console.log(`POST /req.body:`, req.body);
     const sqlText = `
@@ -34,8 +33,21 @@ router.post('/',  (req, res) => {
     })
 });
 
-// DO NOT EDIT THIS ROUTE
-// This route must return all feedback.
+router.put('/:id', (req, res) => {
+  const id = req.params.id;
+  pool.query('UPDATE "feedback" SET flagged = true WHERE id = $1', [id])
+  .then((result) => { 
+          res.sendStatus(200);
+      }
+  )
+  .catch((error) => {
+      console.log(error);
+      res.sendStatus(500);
+  })
+})
+
+
+// This route returns feedback.
 router.get('/', (req, res) => {
     console.log('testing')
     const sqlText = `SELECT * FROM "feedback" ORDER BY "id"`;

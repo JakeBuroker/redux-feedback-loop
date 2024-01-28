@@ -5,9 +5,11 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 
 function Admin() {
+
     const dispatch = useDispatch();
     const globalFeedback = useSelector(store => store.feedback);
-  
+    const flagged = useSelector(store => store.feedback.flagged);
+
     useEffect(() => {
       fetchFeedback();
     }, []);
@@ -24,10 +26,22 @@ function Admin() {
         })
     }
   
-    const onClick = (feedback) => {
+    const onClickRemove = (feedback) => {
         axios.delete(`/api/feedback/${feedback}`)
           .then(response => {
             dispatch({ type: 'REMOVE', payload: feedback });
+            fetchFeedback();
+          })
+          .catch(error => {
+            console.error(error);
+            alert('Error removing feedback');
+          });
+      }
+
+      const onClickRead = (feedback) => {
+        axios.put(`/api/feedback/${feedback}`)
+          .then(response => {
+            dispatch({ type: 'READ', payload: feedback });
             fetchFeedback();
           })
           .catch(error => {
@@ -49,7 +63,7 @@ function Admin() {
               <th>Support</th>
               <th>Comments</th>
               <th>Read</th>
-              <th>Remove</th>
+              <th></th>
             </tr>
             {globalFeedback.map((feedback) => (
               <tr key={feedback.id}>
@@ -59,8 +73,11 @@ function Admin() {
                 <td>{feedback.comments}</td>
                 <td>{String(feedback.flagged)}</td>
                 <td>
-                  <button onClick={() => onClick(feedback.id)}>
+                  <button onClick={() => onClickRemove(feedback.id)}>
                     Remove
+                  </button>
+                  <button onClick={() => onClickRead(feedback.id)}>
+                    Mark Read
                   </button>
                 </td>
               </tr>

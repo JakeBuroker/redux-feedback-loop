@@ -21,7 +21,6 @@ history.push("/SubmitSuccess")
       comments: comments
     }
 
-    // TODO - axios request to server to add book
     axios.post('/api/feedback', newFeedback)
       .then( response => {
         console.log()
