@@ -3,6 +3,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
+import { Table, TableBody, TableCell, TableHead, TableRow, Button } from '@mui/material';
 
 function Admin() {
 
@@ -50,42 +51,56 @@ function Admin() {
           });
       }
       
-    return (
-      <div className='App'>
-        <header className='App-header'>
-          <h1 className='App-title'>Review Your Feedback</h1>
-        </header>
-        <table>
-          <tbody>
-            <tr>
-              <th>Feeling</th>
-              <th>Understanding</th>
-              <th>Support</th>
-              <th>Comments</th>
-              <th>Read</th>
-              <th></th>
-            </tr>
-            {globalFeedback.map((feedback) => (
-              <tr key={feedback.id}>
-                <td>{feedback.feeling}</td>
-                <td>{feedback.understanding}</td>
-                <td>{feedback.support}</td>
-                <td>{feedback.comments}</td>
-                <td>{String(feedback.flagged)}</td>
-                <td>
-                  <button onClick={() => onClickRemove(feedback.id)}>
-                    Remove
-                  </button>
-                  <button onClick={() => onClickRead(feedback.id)}>
-                    Mark Read
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    );
-  }
+      return (
+        <div className='App'>
+          <header className='App-header'>
+            <h1 className='App-title'>Review Feedback</h1>
+          </header>
+    
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Feeling</TableCell>
+                <TableCell>Understanding</TableCell>
+                <TableCell>Support</TableCell>
+                <TableCell>Comments</TableCell>
+                <TableCell>Flagged</TableCell>
+                <TableCell></TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {globalFeedback.map((feedback) => (
+                <TableRow key={feedback.id}>
+                  <TableCell>{feedback.feeling}</TableCell>
+                  <TableCell>{feedback.understanding}</TableCell>
+                  <TableCell>{feedback.support}</TableCell>
+                  <TableCell>{feedback.comments}</TableCell>
+                  <TableCell>{String(feedback.flagged)}</TableCell>
+                  <TableCell>
+                    <Button 
+                      variant="contained" 
+                      color="primary" 
+                      onClick={() => onClickRead(feedback.id)}
+                    >
+                      Flag
+                    </Button>
+                    
+                    <Button 
+                      variant="contained" 
+                      color="warning" 
+                      onClick={() => onClickRemove(feedback.id)}
+                      sx={{ mr: 1 }}
+                    >
+                      DELETE
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      );
+    }
+    
 
   export default Admin

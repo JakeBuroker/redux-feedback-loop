@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { useDispatch } from 'react-redux';
+import { Button } from '@mui/material';
 
 function SubmitSuccess() {
   const dispatch = useDispatch();
@@ -17,9 +18,17 @@ function SubmitSuccess() {
           <h1 className='App-title'>Thank You!</h1>
         </header>
         <h2>Leave more feedback!</h2>
-          <button onClick={onclick} data-testid="next">Leave More</button>
+        <Button 
+          variant="contained" 
+          onClick={onclick} 
+          data-testid="next"
+          sx={{ margin: 2 }} // Additional styling can be added here
+        >
+          Leave More
+        </Button>
       </div>
     );
   }
+
   
 export default SubmitSuccess;

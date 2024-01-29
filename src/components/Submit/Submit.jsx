@@ -2,9 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { useSelector } from 'react-redux';
-
+import { Button } from '@mui/material';
 function Submit() {
-
   const globalFeeling = useSelector(store => store.feeling)
   const understanding = useSelector(store => store.understanding)
   const support = useSelector(store => store.support)
@@ -43,9 +42,9 @@ history.push("/SubmitSuccess")
           <h2>Support: {support}</h2>
           <h2>Comment: {comments}</h2>
         <form  onSubmit={handleSubmit} >
-          <button data-testid="next" type="submit">
-           SUBMIT
-          </button>
+        <Button data-testid="next" variant="contained" type="submit">
+          SUBMIT
+        </Button>
         </form>
         </div>
   );
