@@ -5,8 +5,6 @@ const feeling = (state = 0, action) => {
     if(action.type === 'SET_FEELING'){
       return state = parseFloat(action.payload)
     }
-    if(action.type === 'RESET'){
-      return state = 0}
     console.log(state)
     return state;
   }
