@@ -35,6 +35,14 @@ Submit: Manages feedback submission.
 SubmitSuccess: Indicates successful submission.
 Admin: Interface for feedback management.
 
+Admin Functionality
+The Admin component, accessible manually by navigating to /admin in the URL, offers advanced feedback management features:
+
+Flagging Feedback: Allows admins to flag feedback for review.
+Deleting Feedback: Enables feedback deletion, with a confirmation modal to prevent accidental data loss.
+Confirmation Modal: A 'Are You Sure?' modal for deletion confirmation, detailing the feedback to be deleted for admin review.
+
+
 Contributing
 Join in enhancing this project:
 
